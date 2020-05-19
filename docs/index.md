@@ -9,7 +9,7 @@ nav_order: 1
 
 2020 Summer
 
-<img src="{{ 'image/chat.svg' | relative_url }}" width="200"/>
+<img src="{{ 'image/logo.svg' | relative_url }}" width="200"/>
 
 
 ## Table of contents
