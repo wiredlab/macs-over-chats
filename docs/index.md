@@ -4,12 +4,12 @@ permalink: /
 nav_order: 1
 ---
 
+<img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
+
 # MACs over Chats
 {: .no_toc }
 
 2020 Summer
-
-<img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
 
 
 ## Table of contents
@@ -41,6 +41,12 @@ Written content for a project website and post-trial reports.
 
 **TODO**
 
+
+* (pure) ALOHA
+* slotted ALOHA
+* [CSMA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
+* [CSMA/CD](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
+* [CSMA/CA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
 
 
 
@@ -112,4 +118,6 @@ In addition to the fundamental theory from Shannon showing what is possible, the
 
 
 
-// vim: tw=0
+<!--
+ vim: tw=0
+ -->
