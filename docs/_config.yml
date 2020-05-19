@@ -21,17 +21,18 @@
 title: MACs over Chats
 email: dan.white@valpo.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/macs-over-chats" # the subpath of your site, e.g. /blog
-url: "https://wiredlab.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+    !WIRED Lab project for the Valpo ECE Summer Scholars Program.
+    Studying common channel access methods for as used in wireless communications.
+    Simulate using groups of people in video/audio chat rooms to actively develop a working knowledge of common protocols.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://wiredlab.github.io/macs-over-chats" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ValpoWIREDlab
 github_username:  wiredlab
 
 # Build settings
 remote_theme: pmarsceill/just-the-docs
-color_scheme: dark
+color_scheme: light
 search_enabled: false
 plugins:
   - github-pages
