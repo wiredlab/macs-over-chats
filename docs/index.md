@@ -9,7 +9,7 @@ nav_order: 1
 
 2020 Summer
 
-<img src="{{ 'image/logo.svg' | relative_url }}" width="200"/>
+<img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
 
 
 ## Table of contents
@@ -25,7 +25,7 @@ nav_order: 1
 
 ### Substance of Project
 
-Study common channel access methods for shared mediums as used in wireless
+Study common channel access methods for shared media as used in wireless
 communications.
 Develop a set of procedures and tools that uses people in chat rooms to simulate the collision and throughput rates of simple protocols.
 
