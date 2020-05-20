@@ -53,11 +53,11 @@ Written content for a project website and post-trial reports.
 **TODO**
 
 
-* (pure) ALOHA
+* (pure) [ALOHA](https://en.wikipedia.org/wiki/ALOHAnet)
 * slotted ALOHA
 * [CSMA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
-* [CSMA/CD](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
-* [CSMA/CA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
+* CSMA/CD
+* CSMA/CA
 
 
 $$\frac{1}{2\pi}$$
