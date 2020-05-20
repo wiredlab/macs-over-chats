@@ -11,9 +11,11 @@ nav_order: 1
 <img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
 
 
+<!--
 $$\int_1^4 \exp{3}dx$$
 
 \\(2\pi \ln asdfa\\)
+-->
 
 # MACs over Chats
 {: .no_toc }
@@ -118,7 +120,7 @@ https://lastminuteengineers.com/nrf24l01-arduino-wireless-communication/
 
 ## Background
 
-Communications is the transfer of information.  You may think of using a transmitter to send bits to a receiver.  This transfer may take place over space (here to there) or time (store and retrieve a file) or any combination.  Information is used here in both the technical sense of Shannon's definition of P(x) * log(1/P(x)) and the generic sense of bits and bytes as sent over a radio or stored in a file, though this second category is more properly called symbols.
+Communications is the transfer of information.  You may think of using a transmitter to send bits to a receiver.  This transfer may take place over space (here to there) or time (store and retrieve a file) or any combination.  Information is used here in both the technical sense of Shannon's definition of \\(P(x) log(1/P(x))\\) and the generic sense of bits and bytes as sent over a radio or stored in a file, though this second category is more properly called symbols.
 One last distinction we will make is the "s" at the end of communications.  The difference is that communication is concerned with meaning and content while communications is only concerned with the error-free transfer of bits of information, we don't care what the data actually represents or means.
 
 
