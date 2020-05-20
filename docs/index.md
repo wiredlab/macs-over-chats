@@ -23,6 +23,14 @@ $$\int_1^4 \exp{3}dx$$
 2020 Summer
 
 
+Why does WiFi not work well when lots of people are using it?
+
+How does a radio know when to transmit when there are multiple devices on the same channel?
+
+Can human behavior in a video / audio chat room emulate or simulate the protocols used by computers communicating in shared channels?
+
+
+
 ## Table of contents
 {: .no_toc .text-delta }
 
@@ -30,37 +38,8 @@ $$\int_1^4 \exp{3}dx$$
 {:toc}
 
 
-## Summer project goals
 
-## For-credit
-
-### Substance of Project
-
-Study common channel access methods for shared media as used in wireless
-communications.
-Develop a set of procedures and tools that uses people in chat rooms to simulate the collision and throughput rates of simple protocols.
-
-
-### Method of Evaluation
-
-Written content for a project website and post-trial reports.
-
-
-
-
-## Learning objectives
-
-**TODO**
-
-
-* (pure) [ALOHA](https://en.wikipedia.org/wiki/ALOHAnet)
-* slotted ALOHA
-* [CSMA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
-* CSMA/CD
-* CSMA/CA
-
-
-$$\frac{1}{2\pi}$$
+## Project goals
 
 You will:
 
