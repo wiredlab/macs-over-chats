@@ -6,4 +6,6 @@ nav_order: 2
 
 WIRED Lab project for the Valpo ECE Summer Scholars Program.
 
+Source repository https://github.com/wiredlab/macs-over-chats
+
 

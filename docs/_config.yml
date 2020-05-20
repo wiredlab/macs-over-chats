@@ -33,9 +33,13 @@ github_username:  wiredlab
 # Build settings
 remote_theme: pmarsceill/just-the-docs
 color_scheme: light
-search_enabled: false
 plugins:
   - github-pages
+
+# just-the-docs config
+search_enabled: false
+aux_links:
+    "MACs over Chats on GitHub": //github.com/wiredlab/macs-over-chats
 
 github:
     is_project_page: true
