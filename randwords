@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# good practices boilerplate
+set -o errexit
+set -o pipefail
+set -o nounset
+#set -o xtrace
+
+
+function usage() {
+    cat << EOF
+Usage: $(basename ${0}) [-r min,max] [-n number] [-1]
+    Output random words.  Defaults to one line of one word.
+    -r  range of word lengths, accepts  "k," k or more,  ",k" up to k
+    -n  number of words
+    -1  one word per line (default: one space-separated line)
+EOF
+}
+
+
+NWORDS=1
+OPT_ONELINE=true
+
+declare -a ARGV
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -h|--help)
+            usage
+            exit 1
+            ;;
+        -r|--length)
+            #IFS=',' read -a RANGE <<< " ${2-}"
+            mapfile -t -d , RANGE < <(printf "%s\0" "${2-}")
+            shift 2
+            ;;
+        -n)
+            NWORDS="${2-1}"
+            shift 2
+            ;;
+        -1)
+            OPT_ONELINE=false
+            shift
+            ;;
+        *)
+            ARGV+=("$1")
+            shift
+            ;;
+    esac
+done
+
+
+# provide defaults for empty min and max
+NMIN="${RANGE[0]-}"
+NMIN=$(( NMIN > 1 ? NMIN : 1))
+
+NMAX="${RANGE[1]-}"
+NMAX=$(( NMAX < NMIN ? 999 : NMAX))
+
+
+# 3-column input file format:
+#   rank count word
+cat gsl.txt \
+    | awk "length(\$3) >= $NMIN && length(\$3) <= $NMAX {print \$3}" \
+    | shuf \
+    | head -n ${NWORDS-1} \
+    | if $OPT_ONELINE; then tr '\n' ' '; else cat; fi
+
