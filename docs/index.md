@@ -5,13 +5,13 @@ nav_order: 1
 ---
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
-
 <img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
 
 
 <!--
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+
 $$\int_1^4 \exp{3}dx$$
 
 \\(2\pi \ln asdfa\\)
