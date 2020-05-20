@@ -4,7 +4,16 @@ permalink: /
 nav_order: 1
 ---
 
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+
 <img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
+
+
+$$\int_1^4 \exp{3}dx$$
+
+\\(2\pi \ln asdfa\\)
 
 # MACs over Chats
 {: .no_toc }
@@ -49,16 +58,19 @@ Written content for a project website and post-trial reports.
 * [CSMA/CA](https://en.wikipedia.org/wiki/Carrier-sense_multiple_access)
 
 
+$$\frac{1}{2\pi}$$
 
 You will:
 
 Learn about channel access methods used by wireless and other shared-channel communications systems.
 
 
+How?
+
+
 We will: 
 
 * Create a set of procedures and the support tools for people to simulate channel-access using video/audio chat rooms.
-
 * Invite others across the Internet to participate in our trials and provide
   feedback.
 
