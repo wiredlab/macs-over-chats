@@ -125,7 +125,9 @@ There are several requirements to accomplish this:
 
 * [ ] Obtain a [GitHub](github.com) account and send Prof. White your username for access to the [https://github.com/wiredlab/macs-over-chats repository](https://github.com/wiredlab/macs-over-chats) repository.
 
-* [ ] Read about ALOHA and other channel access methods.
+* [ ] Do the course [Introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github).  1 hour.
+
+* [ ] Read about ALOHA and other channel access methods.  Initial links are in [Resources](refs.html)
 
 * [ ] Write a draft procedure for emulating radios with packets to send using people.  Post to the GitHub repository.
 
