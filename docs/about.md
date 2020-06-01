@@ -9,7 +9,7 @@ nav_order: 4
 Members:
 
 * Adviser: Dan White, Ph.D. [@etihwnad](https://github.com/etihwnad)
-
+* Team Member: Matthew Klemm, Student. [@mklemm1](https://github.com/mklemm1)
 
 Source repository [https://github.com/wiredlab/macs-over-chats](https://github.com/wiredlab/macs-over-chats)
 
