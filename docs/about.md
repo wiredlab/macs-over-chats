@@ -10,6 +10,7 @@ Members:
 
 * Adviser: Dan White, Ph.D. [@etihwnad](https://github.com/etihwnad)
 * Team Member: Matthew Klemm, Student. [@mklemm1](https://github.com/mklemm1)
+* Pro Fridge Searcher: Thomas Panek, ECE. [@Thomas Panek](https://github.com/ThomasPanek)
 
 Source repository [https://github.com/wiredlab/macs-over-chats](https://github.com/wiredlab/macs-over-chats)
 
