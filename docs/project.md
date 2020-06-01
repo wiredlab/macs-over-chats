@@ -125,7 +125,7 @@ There are several requirements to accomplish this:
 
 **Pre-kickoff**
 
-* [ ] Obtain a [GitHub](github.com) account and send Prof. White your username for access to the [https://github.com/wiredlab/macs-over-chats repository](https://github.com/wiredlab/macs-over-chats).
+* [x] Obtain a [GitHub](github.com) account and send Prof. White your username for access to the [https://github.com/wiredlab/macs-over-chats repository](https://github.com/wiredlab/macs-over-chats).
 
 * [ ] Do the course [Introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github).  1 hour.
 
