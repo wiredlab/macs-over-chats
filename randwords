@@ -9,9 +9,12 @@ set -o nounset
 
 function usage() {
     cat << EOF
-Usage: $(basename ${0}) [-r min,max] [-n number] [-1]
+Usage: $(basename ${0}) [-r min,max] [-n number] [-1] [words.txt]
     Output random words.  Defaults to one line of one word.
-    -r  range of word lengths, accepts  "k," k or more,  ",k" up to k
+    words.txt has a line format of:  rank count word
+    (default word list is gsl.txt)
+
+    -r j,k  range of word lengths [,k up to] [j, at least] [j,k range]
     -n  number of words
     -1  one word per line (default: one space-separated line)
 EOF
@@ -49,6 +52,11 @@ while [ $# -gt 0 ]; do
     esac
 done
 
+if [ -f "${ARGV[0]-}" ]; then
+    wordfile="${ARGV[0]}"
+else
+    wordfile="gsl.txt"
+fi
 
 # provide defaults for empty min and max
 NMIN="${RANGE[0]-}"
@@ -60,9 +68,10 @@ NMAX=$(( NMAX < NMIN ? 999 : NMAX))
 
 # 3-column input file format:
 #   rank count word
-cat gsl.txt \
+cat ${wordfile} \
     | awk "length(\$3) >= $NMIN && length(\$3) <= $NMAX {print \$3}" \
     | shuf \
     | head -n ${NWORDS-1} \
     | if $OPT_ONELINE; then tr '\n' ' '; else cat; fi
+echo
 
