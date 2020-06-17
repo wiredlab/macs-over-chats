@@ -1,0 +1,10 @@
+#!/bin/bash
+
+N=1000
+wordlist="nato.txt"
+
+for k in $(seq 3 6); do
+    for i in $(seq $N); do
+        ./randwords -n $k "${wordlist}"
+    done > "nato-words_${k}-${N}.txt"
+done
