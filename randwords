@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# (C) 2020 Dan White
+# MIT License https://opensource.org/licenses/MIT
+
+# TODO
+# * make last digit a check digit to enable forward error detection
+#   This looks like a good option:
+#   https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm
+
+
+
+
 # good practices boilerplate
 set -o errexit
 set -o pipefail
