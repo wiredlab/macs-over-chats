@@ -1,0 +1,124 @@
+Notes
+	: Design for a (web) app to facilitate trials
+	:
+	: The participants still need to rendevous in a shared audio/video chat room
+	: by some other method.
+Base (Receiver)
+	: one per trial
+	events generated
+		trial-new
+			Trigger
+				CLICK button: New Trial
+			Metadata
+				timestamp
+					: captured at button click
+				group-code
+					: to identify the participants in a particular trial
+				timer-config
+					: sent to Clients so everyone is using the same settings
+					random-delay-min
+					random-delay-max
+					random-delay-func
+					trial-duration
+						: for FYI to Client User
+				packet-config
+					: for Client's packet generator
+			Action
+				Server distributes Metadata to Clients
+		trial-start
+			Trigger
+				trial-ready event from all Clients
+			Metadata
+				: TODO
+				timestamp
+			Action
+				Server distributes Event to all Clients
+				Base starts a fixed-duration TIMER
+		packet-receive
+			Trigger
+				SUBMIT text box
+					: receiver types in box.  Enter to broadcast to Clients.
+			Contents
+				timestamp
+					: captured at SUBMIT
+				packet
+					: as-typed in text field, could be normalized to, e.g. UPPERCASE
+		trial-end
+			Trigger
+				TIMER expire
+				CLICK button: Cancel Trial
+			Metadata
+				: ? same as start-trial ?
+			Action
+				Base stops TIMER
+				Server distributes event to Clients
+	events received
+		trial-ready
+			: from each of the associated Clients
+		trial-join
+			: collect/view participants in a session?
+Client (Sender)
+	: One or more per trial
+	events generated
+		packet-send
+			: User begins to send packet over chat channel
+			Trigger
+				TIMER expire
+			Metadata
+				timestamp
+				delay
+					: value of timer duration that just expired
+			Action
+				Display next packet to User
+					: play sound
+					: flash packet text field
+		packet-ack
+			: User confirms successful reception by checking received packets against
+			: sent packet.
+			Trigger
+				CLICK button: Received
+			Metadata
+				: TODO
+				timestamp
+			Action
+				TIMER start using new random value
+				Generate next packet
+				Indicate to user waiting for next packet
+		packet-nack
+			: User determines that sent packet was not successfully received.
+			:
+			: Or Client times out after TBD seconds of no user response.
+			Trigger
+				CLICK button: Failed
+			Metadata
+				: TODO
+				timestamp
+			Action
+				TIMER start using new random value
+				Indicate to user waiting for next packet
+		trial-ready
+			Trigger
+				CLICK button: Ready to begin
+			Metadata
+				timestamp
+			Action
+				wait for trial-start event
+		trial-resign
+		trial-join
+	events received
+		new-trial
+		start-trial
+		received-packet
+Server
+	: All events go through the Server.
+	: Server handles distribution of events to participants.
+Packet
+	characteristics
+		length
+			1 -- k (typical 5)
+		alphabet
+			[A-Z] using NATO/ICAO phonetic alphabet
+		check
+			last symbol is the check on the rest
+				: Luhn mod N algorithm
+				: see src/frames.py

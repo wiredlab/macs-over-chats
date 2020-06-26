@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/ed/macs-over-chats/webapp.otl.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="none">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="PaperColor">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #d0d0d0; background-color: #1c1c1c; }
+body { font-family: monospace; color: #d0d0d0; background-color: #1c1c1c; }
+* { font-size: 1em; }
+.PreProc { color: #00afaf; }
+.Comment { color: #808080; }
+.Constant { color: #ff5faf; }
+.Identifier { color: #d7875f; font-weight: bold; }
+.Statement { color: #afd700; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Statement">Notes</span>
+<span class="Comment">  : Design for a (web) app to facilitate trials</span>
+<span class="Comment">  :</span>
+<span class="Comment">  : The participants still need to rendevous in a shared audio/video chat room</span>
+<span class="Comment">  : by some other method.</span>
+<span class="Statement">Base (Receiver)</span>
+<span class="Comment">  : one per trial</span>
+<span class="Identifier">  events generated</span>
+<span class="Constant">    trial-new</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        CLICK button: New Trial</span>
+<span class="PreProc">      Metadata</span>
+<span class="Statement">        timestamp</span>
+<span class="Comment">          : captured at button click</span>
+<span class="Statement">        group-code</span>
+<span class="Comment">          : to identify the participants in a particular trial</span>
+<span class="Statement">        timer-config</span>
+<span class="Comment">          : sent to Clients so everyone is using the same settings</span>
+<span class="Identifier">          random-delay-min</span>
+<span class="Identifier">          random-delay-max</span>
+<span class="Identifier">          random-delay-func</span>
+<span class="Identifier">          trial-duration</span>
+<span class="Comment">            : for FYI to Client User</span>
+<span class="Statement">        packet-config</span>
+<span class="Comment">          : for Client's packet generator</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        Server distributes Metadata to Clients</span>
+<span class="Constant">    trial-start</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        trial-ready event from all Clients</span>
+<span class="PreProc">      Metadata</span>
+<span class="Comment">        : TODO</span>
+<span class="Statement">        timestamp</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        Server distributes Event to all Clients</span>
+<span class="Statement">        Base starts a fixed-duration TIMER</span>
+<span class="Constant">    packet-receive</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        SUBMIT text box</span>
+<span class="Comment">          : receiver types in box.  Enter to broadcast to Clients.</span>
+<span class="PreProc">      Contents</span>
+<span class="Statement">        timestamp</span>
+<span class="Comment">          : captured at SUBMIT</span>
+<span class="Statement">        packet</span>
+<span class="Comment">          : as-typed in text field, could be normalized to, e.g. UPPERCASE</span>
+<span class="Constant">    trial-end</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        TIMER expire</span>
+<span class="Statement">        CLICK button: Cancel Trial</span>
+<span class="PreProc">      Metadata</span>
+<span class="Comment">        : ? same as start-trial ?</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        Base stops TIMER</span>
+<span class="Statement">        Server distributes event to Clients</span>
+<span class="Identifier">  events received</span>
+<span class="Constant">    trial-ready</span>
+<span class="Comment">      : from each of the associated Clients</span>
+<span class="Constant">    trial-join</span>
+<span class="Comment">      : collect/view participants in a session?</span>
+<span class="Statement">Client (Sender)</span>
+<span class="Comment">  : One or more per trial</span>
+<span class="Identifier">  events generated</span>
+<span class="Constant">    packet-send</span>
+<span class="Comment">      : User begins to send packet over chat channel</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        TIMER expire</span>
+<span class="PreProc">      Metadata</span>
+<span class="Statement">        timestamp</span>
+<span class="Statement">        delay</span>
+<span class="Comment">          : value of timer duration that just expired</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        Display next packet to User</span>
+<span class="Comment">          : play sound</span>
+<span class="Comment">          : flash packet text field</span>
+<span class="Constant">    packet-ack</span>
+<span class="Comment">      : User confirms successful reception by checking received packets against</span>
+<span class="Comment">      : sent packet.</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        CLICK button: Received</span>
+<span class="PreProc">      Metadata</span>
+<span class="Comment">        : TODO</span>
+<span class="Statement">        timestamp</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        TIMER start using new random value</span>
+<span class="Statement">        Generate next packet</span>
+<span class="Statement">        Indicate to user waiting for next packet</span>
+<span class="Constant">    packet-nack</span>
+<span class="Comment">      : User determines that sent packet was not successfully received.</span>
+<span class="Comment">      :</span>
+<span class="Comment">      : Or Client times out after TBD seconds of no user response.</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        CLICK button: Failed</span>
+<span class="PreProc">      Metadata</span>
+<span class="Comment">        : TODO</span>
+<span class="Statement">        timestamp</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        TIMER start using new random value</span>
+<span class="Statement">        Indicate to user waiting for next packet</span>
+<span class="Constant">    trial-ready</span>
+<span class="PreProc">      Trigger</span>
+<span class="Statement">        CLICK button: Ready to begin</span>
+<span class="PreProc">      Metadata</span>
+<span class="Statement">        timestamp</span>
+<span class="PreProc">      Action</span>
+<span class="Statement">        wait for trial-start event</span>
+<span class="Constant">    trial-resign</span>
+<span class="Constant">    trial-join</span>
+<span class="Identifier">  events received</span>
+<span class="Constant">    new-trial</span>
+<span class="Constant">    start-trial</span>
+<span class="Constant">    received-packet</span>
+<span class="Statement">Server</span>
+<span class="Comment">  : All events go through the Server.</span>
+<span class="Comment">  : Server handles distribution of events to participants.</span>
+<span class="Statement">Packet</span>
+<span class="Identifier">  characteristics</span>
+<span class="Constant">    length</span>
+<span class="PreProc">      1 -- k (typical 5)</span>
+<span class="Constant">    alphabet</span>
+<span class="PreProc">      [A-Z] using NATO/ICAO phonetic alphabet</span>
+<span class="Constant">    check</span>
+<span class="PreProc">      last symbol is the check on the rest</span>
+<span class="Comment">        : Luhn mod N algorithm</span>
+<span class="Comment">        : see src/frames.py</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
