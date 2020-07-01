@@ -10,7 +10,13 @@ def index():
     if form.validate_on_submit():
         session['name'] = form.name.data
         session['room'] = form.room.data
-        return redirect(url_for('.chat'))
+        if form.option.data == 'trial':
+            return redirect(url_for('.trial'))
+        elif form.option.data == 'chat':
+            return redirect(url_for('.chat'))
+        else:
+            return redirect(url_for('.chat'))
+
     elif request.method == 'GET':
         form.name.data = session.get('name', '')
         form.room.data = session.get('room', '')
@@ -26,3 +32,14 @@ def chat():
     if name == '' or room == '':
         return redirect(url_for('.index'))
     return render_template('chat.html', name=name, room=room)
+
+
+@main.route('/trial')
+def trial():
+    """Trial participant room.
+    The user's name and room must be stored in the session."""
+    name = session.get('name', '')
+    room = session.get('room', '')
+    if name == '' or room == '':
+        return redirect(url_for('.index'))
+    return render_template('trial.html', name=name, room=room)
