@@ -86,7 +86,7 @@ def packet_ack(message):
 
 
 
-@socketio.on('joined', namespace='/chat')
+@socketio.on('joined', namespace='/trial')
 def joined(message):
     """Sent by clients when they enter a room.
     A status message is broadcast to all people in the room."""
@@ -97,7 +97,7 @@ def joined(message):
     print(room, name, message)
 
 
-@socketio.on('text', namespace='/chat')
+@socketio.on('text', namespace='/trial')
 def text(message):
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
@@ -107,7 +107,7 @@ def text(message):
     print(room, name, message)
 
 
-@socketio.on('left', namespace='/chat')
+@socketio.on('left', namespace='/trial')
 def left(message):
     """Sent by clients when they leave a room.
     A status message is broadcast to all people in the room."""
