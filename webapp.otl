@@ -77,24 +77,16 @@ Client (Sender)
 			: sent packet.
 			Trigger
 				CLICK button: Received
-			Metadata
-				: TODO
-				timestamp
-			Action
-				TIMER start using new random value
-				Generate next packet
-				Indicate to user waiting for next packet
-		packet-nack
-			: User determines that sent packet was not successfully received.
-			:
-			: Or Client times out after TBD seconds of no user response.
-			Trigger
 				CLICK button: Failed
 			Metadata
 				: TODO
 				timestamp
+				ack: true | false
 			Action
-				TIMER start using new random value
+				ack==true
+					TIMER start using new random frame
+				ack==false
+					TIMER start using present frame
 				Indicate to user waiting for next packet
 		trial-ready
 			Trigger
@@ -103,12 +95,16 @@ Client (Sender)
 				timestamp
 			Action
 				wait for trial-start event
-		trial-resign
 		trial-join
 	events received
-		new-trial
-		start-trial
-		received-packet
+		trial-new
+		trial-ready
+			Action
+				Set ready flag of participant
+		trial-start
+			Action
+				TIMER start random
+		packet-receive
 Server
 	: All events go through the Server.
 	: Server handles distribution of events to participants.
