@@ -25,7 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
     Studying common channel access methods for as used in wireless communications.
     Simulate using groups of people in video/audio chat rooms to actively develop a working knowledge of common protocols.
 
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/macs-over-chats" # the subpath of your site, e.g. /blog
 url: "https://wiredlab.github.io/macs-over-chats" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ValpoWIREDlab
 github_username:  wiredlab
