@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 
-<img src="{{ 'image/logo.svg' | absolute_url }}" width="200"/>
+<img src="{{ 'image/logo.svg' | relative_url }}" width="200"/>
 
 
 <!--
@@ -39,7 +39,7 @@ See the [Project](project.html) page for more.
 
 [@ValpoWIREDlab](https://twitter.com/ValpoWIREDlab)
 
-<img src="{{ 'image/wiredlab-logo3.svg' | absolute_url }}" width="400"/>
+<img src="{{ 'image/wiredlab-logo3.svg' | relative_url }}" width="400"/>
 
 
 
